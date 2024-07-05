@@ -1,0 +1,13 @@
+# Ignore all files in the current directory
+
+# Ignore all files in subdirectories
+
+# Ignore specific file types
+*.txt
+*.log
+*.tmp
+
+# Ignore specific directories
+/node_modules/
+/dist/
+/abc/
