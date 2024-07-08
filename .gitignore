@@ -6,6 +6,7 @@
 *.txt
 *.log
 *.tmp
+*.env
 
 # Ignore specific directories
 /node_modules/
