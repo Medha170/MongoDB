@@ -55,8 +55,38 @@ app.post('/api/products', async (req, res) => {
     return res.status(201).json({message : "Product Created"});
 });
 
+// get route
+
+app.get('/api/products', async (req, res) => {
+    const allProducts = await productModel.find({isInStock : true});
+    return res.status(200).json(allProducts);
+});
+
+// get by id
+
+app.get('/api/products/:id', async (req, res) => {
+    const id = req.params.id;
+    const product = await productModel.findById(id);
+    return res.status(200).json(product);
+});
+
+// update by id
+
+app.put('/api/products/:id', async (req, res) => {
+    const updatedProduct = await productModel.findByIdAndUpdate(req.params.id, req.body);
+    return res.json(updatedProduct);
+});
+
+// delete by id
+
+app.delete('/api/products/:id', async (req, res) => {
+    const id = req.params.id;
+    const deletedProduct = await productModel.findByIdAndDelete(id);
+    return res.json(deletedProduct);
+});
 
 
-app.listen(8086, () => {
-  console.log("Server sarted at port 8086");
+
+app.listen(8087, () => {
+  console.log("Server sarted at port 8087");
 });
